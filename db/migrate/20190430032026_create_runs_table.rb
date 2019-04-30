@@ -7,7 +7,6 @@ class CreateRunsTable < ActiveRecord::Migration
       t.string :notes
       t.string :indoor_outdoor
       t.integer :user_id
-      
       t.timestamps null: false
     end
   end
