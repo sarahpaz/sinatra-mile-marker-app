@@ -41,7 +41,7 @@ Stretch Goals:
 - [X] Use ActiveRecord with Sinatra.
 - [X] Use multiple models.
 - [X] Use at least one has_many relationship on a User model and one belongs_to relationship on another model.
-- [ ] Must have user accounts - users must be able to sign up, sign in, and sign out.
+- [x] Must have user accounts - users must be able to sign up, sign in, and sign out.
 - [X] Validate uniqueness of user login attribute (username or email).
 - [ ] Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user.
 - [ ] Ensure that users can edit and delete only their own resources - not resources created by other users.
