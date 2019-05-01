@@ -1,0 +1,29 @@
+<h1>Welcome, <%= current_user.username %>!</h1>
+
+<h2>Here's a quick snapshot of your progress!</h2>
+<p>You've completed <%= current_user.runs.count %> run(s).</p>
+<p>With a total of 
+  <% current_user.runs.each do |run| %>
+    <%= run.distance %> 
+  <% end%>
+  miles!
+</p>
+
+<p>Your run goal is <%= current_user.run_goal%>!</p>
+
+<progress value="6" max="100"></progress>
+
+<h2>Run History</h2>
+<% current_user.runs.each do |run|%>
+  Distance: <%= run.distance %> miles
+  Run time: <%= run.time%> minutes
+  Shoes: <%= run.shoes%>
+  Notes: <%= run.notes%>
+  Indoor / Outdoor: <%= run.indoor_outdoor %>
+  <div>
+  <a href="/runs/edit">Edit</a>&nbsp;<a href="/runs/delete">Delete</a>
+  <br><br>
+</div>
+<% end%>
+
+
