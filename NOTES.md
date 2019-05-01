@@ -31,6 +31,8 @@ Attributes:
 Associations:
 - belongs_to :user
 
+Stretch Goals:
+- Add 'See How You Compare' page
 
 ### Project Requirements:
 
