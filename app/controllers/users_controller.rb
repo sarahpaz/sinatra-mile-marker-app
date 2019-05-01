@@ -1,18 +1,30 @@
 class UsersController < ApplicationController 
-  
-  get '/users/signup' do 
-    erb :'/users/signup'
-  end
 
-  post '/users/signup' do
-    if params[:username].empty? || params[:email].empty? || params[:run_goal].empty? || params[:password].empty?
-      redirect '/users/signup'
+  get '/users/login' do
+    
+    if !logged_in?
+      erb :'/welcome'
     else
-      @user = User.new(params)
-      @user.save
-      session[:user_id] = @user.user_id
-      redirect "/users/#{@user.id}"
+      redirect :"/users/#{@current_user.slug}"
     end
   end
 
+  post '/users/login' do
+    @user = User.find_by(params[:id])
+    
+    if @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect "/users/#{@user.slug}"
+      erb :'/users/show'
+    else
+      redirect '/'
+    end    
+  end 
+
+  get '/users/:slug' do
+    @run = Run.all
+    erb :'/users/show'
+  end
+
+ 
 end
