@@ -27,6 +27,12 @@ class ApplicationController < Sinatra::Base
         redirect '/'
       end
     end
+
+    def redirect_to_current_user
+      if @run.user != current_user
+        redirect "/users/#{current_user.slug}"
+      end
+    end
   end
 
 end
