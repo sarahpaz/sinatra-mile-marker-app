@@ -26,7 +26,6 @@ Attributes:
 - notes
 - indoor_outdoor
 - user_id
-- date (stretch goal)
 
 Associations:
 - belongs_to :user
