@@ -1,19 +1,19 @@
 <h1>Add a new run</h1>
 <h2>Good job! You're one step closer to your goal!</h2>
 
-<form action="/runs/new" method="POST">
+<form action="/runs" method="POST">
   <label for="distance">Distance (miles):</label>
-  <input type="text" name="distance" id="distance">
+  <input type="text" name="distance" id="distance" required>
 
   <br><br>
 
   <label for="time">Time (mins):</label>
-  <input type="text" name="time" id="time">
+  <input type="text" name="time" id="time" required>
 
   <br><br>
 
   <label for="shoes">Shoes:</label>
-  <input type="text" name="shoes" id="shoes">
+  <input type="text" name="shoes" id="shoes" required>
 
   <br><br>
 
@@ -23,10 +23,7 @@
   <br><br>
 
   <label for="indoor_outdoor">Indoor / Outdoor:</label>
-  <select name="indoor_outdoor">
-    <option value="Indoor">Indoor</option>
-    <option value="Outdoor">Outdoor</option>
-  </select>
+  <input type="text" name="indoor_outdoor" id="indoor_outdoor" required>
 
   <br><br>
   <input type="submit" value="Add Run" id="Submit">
