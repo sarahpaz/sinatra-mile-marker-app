@@ -9,7 +9,7 @@
   
 <h1>Welcome, <%= @user.username %>!</h1>
 
-<h2>Here's a quick snapshot of your progress!</h2>
+<h2>Here's a quick snapshot of your progress:</h2>
 <p>You've completed <%= @user.runs.count %> run(s).</p>
 <p>With a total of <%= @user.runs.inject(0) {|sum, r| sum + r.distance} %> miles!</p>
 
