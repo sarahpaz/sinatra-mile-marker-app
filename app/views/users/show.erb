@@ -19,7 +19,7 @@
 
 <h2>Run History</h2>
 <p>Got more miles to track? Add it <a href="/runs/new">here!</a></p>
-<% @user.runs.each do |run|%>
+<% @user.runs.sort.reverse.each do |run|%>
   Distance: <%= run.distance %> miles
   Run time: <%= run.time%> minutes
   Shoes: <%= run.shoes%>
