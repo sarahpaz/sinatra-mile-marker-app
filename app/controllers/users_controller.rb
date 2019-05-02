@@ -1,4 +1,5 @@
 class UsersController < ApplicationController 
+
   get '/users/signup' do
     if !logged_in?
       erb :'/users/signup'  
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
 
   post '/users/signup' do
     if params[:username] != "" || params[:email] != "" || params[:run_goal] != "" || params[:password] != ""
-      @user = User.create(username: params[:username], email: params[:email], run_goal: params[:run_goal], password: params[:password])
+      @user = User.create(params)
       session[:user_id] = @user.id
       redirect "/users/#{@user.slug}"
     else
@@ -36,31 +37,15 @@ class UsersController < ApplicationController
   end 
 
   get '/users/logout' do
-    if logged_in?
-      session.clear
-      redirect '/'
-    else
-      redirect '/'
-    end
+    session.clear
+    redirect '/' # add error message of successful logout
   end
 
   get '/users/:slug' do
-    @user = User.find_by_id(params[:id])
-    if logged_in? 
-      @user = current_user
-      erb :'/users/show'
-    else
-      redirect '/' 
-    end
+    @user = current_user
+    redirect_if_not_logged_in  # add error message to login to view show page
+    erb :'/users/show'
   end
 
-  post '/users/:slug' do
-    if logged_in? 
-      @user = current_user
-      redirect "/users/#{@user.slug}"
-    else
-      redirect '/' 
-    end
-  end
 end
 
