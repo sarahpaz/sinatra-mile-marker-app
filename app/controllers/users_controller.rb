@@ -45,10 +45,9 @@ class UsersController < ApplicationController
     end
   end
 
-   get '/users/:slug' do
-    @run = Run.all
-    @user = User.find_by(params[:id])
-    if logged_in?
+  get '/users/:slug' do
+    if logged_in? 
+      @user = current_user
       erb :'/users/show'
     else
       redirect '/' 
