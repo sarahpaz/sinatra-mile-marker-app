@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20190430032026) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|œ
     t.string   "username"
     t.string   "email"
     t.integer  "run_goal"
