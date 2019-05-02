@@ -20,12 +20,12 @@
 <p>Got more miles to track? Add it <a href="/runs/new">here!</a></p>
 <% @user.runs.sort.reverse.each do |run|%>
   Distance: <%= run.distance %> miles
-  Run time: <%= run.time%> minutes
-  Shoes: <%= run.shoes%>
-  Notes: <%= run.notes%>
+  Run time: <%= run.time %> minutes
+  Shoes: <%= run.shoes %>
+  Notes: <%= run.notes %> 
   Indoor / Outdoor: <%= run.indoor_outdoor %>
   <div>
-  <a href="/runs/<%= run.id %>/edit">Edit</a>&nbsp;<a href="/runs/<%= run.id %>">Delete</a>
+  <a href="/runs/<%= run.id %>/edit">Edit</a>&nbsp;<a href="/runs/<%= run.id %>/delete">Delete</a> <!-- message on click, are you sure you want to delete this run? -->
   <br><br>
 </div>
 <% end%>
