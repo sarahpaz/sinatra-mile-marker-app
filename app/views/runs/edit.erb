@@ -1,0 +1,30 @@
+<h1>Edit Your Run</h1>
+
+<form action="/users/<%= @run.user.slug %>" method="POST">
+  <input type="hidden" id="hidden" name="_method" action="PATCH">
+  <label for="distance">Distance (miles):</label>
+  <input type="text" name="distance" id="distance" value="<%= @run.distance %>">
+
+  <br><br>
+
+  <label for="time">Time (mins):</label>
+  <input type="text" name="time" id="time" value="<%= @run.time %>">
+
+  <br><br>
+
+  <label for="shoes">Shoes:</label>
+  <input type="text" name="shoes" id="shoes" value="<%= @run.shoes %>">
+
+  <br><br>
+
+  <label for="notes">Notes:</label><br>
+  <textarea rows="5" cols="50" name="notes" id="notes" value="<%= @run.notes %>"></textarea>
+
+  <br><br>
+
+  <label for="indoor_outdoor">Indoor / Outdoor:</label>
+  <input type="text" name="indoor_outdoor" id="indoor_outdoor" value="<%= @run.indoor_outdoor %>">
+
+  <br><br>
+  <input type="submit" value="Update Run" id="Submit">
+</form>
