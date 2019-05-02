@@ -18,6 +18,7 @@ class RunsController < ApplicationController
 
   get '/runs/:id/edit' do
     @run = Run.find(params[:id])
+    @runs = Run.all
     if logged_in?
       if @run.user == current_user
         erb :'/runs/edit'
