@@ -13,6 +13,8 @@
 <p>You've completed <%= @user.runs.count %> run(s).</p>
 <p>With a total of <%= @user.runs.inject(0) {|sum, r| sum + r.distance} %> miles!</p>
 
+<p>Your average pace is: <%= @user.runs.inject(0) {|sum, t| sum + t.time} / @user.runs.inject(0) {|sum, d| sum + d.distance}%> min/mile</p>
+
 <p>Your run goal is <%= @user.run_goal %> miles!</p>
 
 <progress value="<%= @user.runs.inject(0) {|sum, r| sum + r.distance} %>" max="<%= @user.run_goal %>"></progress>
@@ -20,7 +22,6 @@
 <h2>Run History</h2>
 <p>Got more miles to track? Add it <a href="/runs/new">here!</a></p>
 <% @user.runs.sort.reverse.each do |run|%>
-  Log date: <%= run.created_at %>
   Distance: <%= run.distance %> miles
   Run time: <%= run.time%> minutes
   Shoes: <%= run.shoes%>
