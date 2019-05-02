@@ -1,20 +1,16 @@
 class RunsController < ApplicationController
 
   get '/runs/new' do
+    redirect_if_not_logged_in
     erb :'/runs/new'
   end
 
-  post '/runs/new' do
-    if logged_in? && params[:distance] != "" && params[:time] != "" && params[:shoes] != "" && params[:indoor_outdoor] != ""
-      @run = Run.create(params)
-      @run.user = current_user
-      @run.save
-      redirect "/users/#{@run.user.slug}"
-    else
-      redirect "/users/#{current_user.slug}" # add error about run missing inputs
-    end
+  post '/runs' do
+    params[:distance] != "" && params[:time] != "" && params[:shoes] != "" && params[:indoor_outdoor] != ""
+    @run = Run.create(distance: params[:distance], time: params[:time], shoes: params[:shoes], notes: params[:notes], indoor_outdoor: params[:indoor_outdoor], user_id: current_user.id)
+    redirect "/users/#{@run.user.slug}"
+    redirect_to_current_user
   end
-
 
   get '/runs/:id/edit' do
     @run = Run.find(params[:id])
@@ -32,21 +28,22 @@ class RunsController < ApplicationController
 
   patch '/runs/:id' do
     @run = Run.find(params[:id])
-    if @run.user == current_user
-      @run.update(distance: params[:distance], time: params[:time], shoes: params[:shoes], notes: params[:notes], indoor_outdoor: params[:indoor_outdoor])
-      redirect "/users/#{@run.user.slug}"
-    else
-      redirect "/users/#{current_user.slug}"
-    end
+    @run.user == current_user
+    @run.update(distance: params[:distance], time: params[:time], shoes: params[:shoes], notes: params[:notes], indoor_outdoor: params[:indoor_outdoor])
+    redirect "/users/#{@run.user.slug}"
+    redirect_to_current_user
   end
   
-  get '/runs/:id' do
+  get '/runs/:id/delete' do
     @run = Run.find(params[:id])
-    if @run.user == current_user
-      @run.destroy
-      redirect "/users/#{@run.user.slug}"
-    else
-      redirect "/users/#{@run.user.slug}"
-    end
+    erb :'runs/delete'
+  end
+
+  delete '/runs/:id' do
+    @run = Run.find(params[:id])
+    @run.user == current_user
+    @run.destroy
+    redirect "/users/#{@run.user.slug}"
+    redirect_to_current_user
   end
 end
