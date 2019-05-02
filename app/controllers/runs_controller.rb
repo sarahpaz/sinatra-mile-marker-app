@@ -5,8 +5,13 @@ class RunsController < ApplicationController
   end
 
   post '/runs/new' do
-    if params[:distance] != "" 
+    if logged_in? && params[:distance] != "" || params[:time] != "" || params[:shoes] != "" || params[:indoor_outdoor] != ""
       @run = Run.create(params)
+      @run.user = current_user
+      @run.save
+      redirect "/users/#{@run.user.slug}"
+    else
+      redirect "/users/#{current_user.slug}" # add error about run missing inputs
     end
   end
 end
