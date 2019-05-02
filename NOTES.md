@@ -34,7 +34,7 @@ Stretch Goals:
 - [ ] Add 'See How You Compare' page
 - [ ] Add option to edit run goal on 'Sarah' (edit profile) page
 - [ ] Add average pace (min/mile)
-- [X] Change Outdoor / Indoor to dropdown input
+- [ ] Change Outdoor / Indoor to dropdown input
 
 
 ### Project Requirements:
