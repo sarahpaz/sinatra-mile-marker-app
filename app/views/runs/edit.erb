@@ -21,9 +21,11 @@
   <textarea rows="5" cols="50" name="notes" id="notes"><%= @run.notes %></textarea>
 
   <br><br>
-
   <label for="indoor_outdoor">Indoor / Outdoor:</label>
-  <input type="text" name="indoor_outdoor" id="indoor_outdoor" value="<%= @run.indoor_outdoor %>">
+  <select name="indoor_outdoor">
+    <option value="Indoor">Indoor</option>
+    <option value="Outdoor">Outdoor</option>
+  </select>
 
   <br><br>
   <input type="submit" value="Update Run" id="Submit">
