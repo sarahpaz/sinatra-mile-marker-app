@@ -3,17 +3,17 @@
 <form action="/runs/<%= @run.id %>" method="POST">
   <input type="hidden" id="hidden" name="_method" value="PATCH">
   <label for="distance">Distance (miles):</label>
-  <input type="text" name="distance" id="distance" value="<%= @run.distance %>">
+  <input type="text" name="distance" id="distance" value="<%= @run.distance %>" required>
 
   <br><br>
 
   <label for="time">Time (mins):</label>
-  <input type="text" name="time" id="time" value="<%= @run.time %>">
+  <input type="text" name="time" id="time" value="<%= @run.time %>" required>
 
   <br><br>
 
   <label for="shoes">Shoes:</label>
-  <input type="text" name="shoes" id="shoes" value="<%= @run.shoes %>">
+  <input type="text" name="shoes" id="shoes" value="<%= @run.shoes %>" required>
 
   <br><br>
 
@@ -22,11 +22,8 @@
 
   <br><br>
   <label for="indoor_outdoor">Indoor / Outdoor:</label>
-  <select name="indoor_outdoor">
-    <option value="Indoor">Indoor</option>
-    <option value="Outdoor">Outdoor</option>
-  </select>
+  <input type="text" name="indoor_outdoor" id="indoor_outdoor" value="<%= @run.indoor_outdoor %>" required>
 
   <br><br>
-  <input type="submit" value="Update Run" id="Submit">
+  <input type="submit" value="Update" id="Submit">
 </form>
