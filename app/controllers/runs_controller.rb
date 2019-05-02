@@ -17,22 +17,25 @@ class RunsController < ApplicationController
 
 
   get '/runs/:id/edit' do
+    @run = Run.find(params[:id])
     if logged_in?
-      @run = Run.find(params[:id])
-      erb :'/runs/edit'
+      if @run.user == current_user
+        erb :'/runs/edit'
+      else
+        redirect "/users/#{current_user.slug}"
+      end
     else
       redirect '/'
     end
   end
 
-  patch '/runs/:id/edit' do
+  patch '/runs/:id' do
     @run = Run.find(params[:id])
-    if params[:distance] != "" && params[:time] != "" && params[:shoes] != "" && params[:notes] != "" && params[:indoor_outdoor] != ""
-      @run.update(params)
-      @run.save
-      redirect "/runs/#{@run.id}"
+    if @run.user == current_user
+      @run.update(distance: params[:distance], time: params[:time], shoes: params[:shoes], notes: params[:notes], indoor_outdoor: params[:indoor_outdoor])
+      redirect "/users/#{@run.user.slug}"
     else
-      redirect "/runs/edit/#{@run.id}"
+      redirect "/users/#{current_user.slug}"
     end
   end
   
