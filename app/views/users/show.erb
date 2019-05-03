@@ -1,13 +1,4 @@
-<nav>
-    <ul>
-      <li><a href="/users/<%= @user.slug %>">
-      <%= @user.username %></a></li>
-       <li><a href="/users/logout">
-      Logout</a></li>
-    </ul>
-  </nav>
-  
-<h1>Welcome, <%= @user.username %>!</h1>
+<h1 class="white-title">Welcome, <%= @user.username %>!</h1>
 
 <h2>Here's a quick snapshot of your progress:</h2>
 <p>You've completed <%= @user.runs.count %> run(s).</p>
