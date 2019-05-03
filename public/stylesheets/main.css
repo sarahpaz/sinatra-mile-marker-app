@@ -27,12 +27,12 @@
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 10% auto 16px auto;
+    margin: 15vh auto 16px auto;
     max-width: 500px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
     text-align: center;
-    top: 10em;
+    top: 10vh;
     border-radius: 5px;
   }
   
@@ -46,6 +46,10 @@
     font-family: 'Gugi', cursive;
     font-size: 5em;
     line-height: 80px;
+  }
+
+  .white-title {
+    color: #fff;
   }
 
   h2 {
@@ -66,6 +70,9 @@
 
   .main {
     overflow: hidden;
+    max-width: 1030px;
+    margin: auto;
+    padding: 2em;
   }
 
   .content {
@@ -112,6 +119,17 @@
     font-size: 16px;
     background: #fff;
     border: 1px solid #FFC551;
+    padding: 2px;
+  }
+
+  nav.navbar {
+    text-align: right;
+    padding: 15px;
+    background: #FFD37A;
+  }
+
+  nav.navbar li {
+    display: inline-block;
   }
 }
 
