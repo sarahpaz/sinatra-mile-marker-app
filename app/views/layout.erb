@@ -12,11 +12,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
-    
+    <link rel="shortcut icon" href="/images/shoe.ico">
+
   </head>
   <body>
     <header>
-    
+      <% if logged_in? %>
+        <nav class="navbar">
+          <ul>
+            <li><a href="/users/<%= current_user.slug %>">
+            <%= current_user.username %></a></li>
+            <li><a href="/users/logout">
+            Logout</a></li>
+          </ul>
+        </nav>
+      <% end %>
+
     </header>
     
     <div class="main">
