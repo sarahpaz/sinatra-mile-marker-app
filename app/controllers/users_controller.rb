@@ -32,6 +32,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/users/#{@user.slug}"
     else
+      flash[:message] = "Sorry. that password is not valid."
       redirect '/'
     end    
   end 
