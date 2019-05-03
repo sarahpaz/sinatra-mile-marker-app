@@ -1,3 +1,6 @@
+/* -- Font Stles -- */
+@import url('https://fonts.googleapis.com/css?family=Gugi');
+
 @media screen {
   /* --- Reset Styles --- */
   * {
@@ -13,7 +16,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: #FFC551;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -24,22 +27,32 @@
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 16px auto;
-    max-width: 960px;
+    margin: 10% auto 16px auto;
+    max-width: 500px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
+    text-align: center;
+    top: 10em;
+    border-radius: 5px;
+  }
+  
+  .main-title {
+    max-width: 250px;
+    text-align: left;
+    padding-bottom: 10px;
   }
 
   h1 {
-    font-size: 36px;
-    line-height: 54px;
+    font-family: 'Gugi', cursive;
+    font-size: 5em;
+    line-height: 80px;
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
+    border-bottom: 3px solid #FFC551;
   }
 
   h3 {
@@ -77,9 +90,28 @@
   }
 
   footer.branding {
-    border-top: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;
+    text-align: center;
+  }
+
+  Input#Submit {
+    padding: 10px;
+    border: 1px solid #FFC551;
+    width: 100px;
+    border-radius: 3px;
+    background: #FFC551;
+    color: #fff;
+    font-size: 16px;
+  }
+  Input#Submit:hover {
+    background:#FFD37A;
+  }
+
+  input {
+    font-size: 16px;
+    background: #fff;
+    border: 1px solid #FFC551;
   }
 }
 
