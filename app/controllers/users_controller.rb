@@ -9,8 +9,11 @@ class UsersController < ApplicationController
   end
 
   post '/users/signup' do
-    if params[:username] != "" || params[:email] != "" || params[:run_goal] != "" || params[:password] != ""
-      @user = User.create(params)
+    if User.exists?(username: params[:username])
+      flash[:message] = "Sorry. that username is already taken."
+      erb :'/users/signup'
+    elsif params[:username] != "" || params[:email] != "" || params[:run_goal] != "" || params[:password] != ""
+      @user = User.create(params) 
       session[:user_id] = @user.id
       redirect "/users/#{@user.slug}"
     else
