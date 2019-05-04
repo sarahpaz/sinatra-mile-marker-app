@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :runs
-  validates_uniqueness_of :username 
 
   def slug 
     username.downcase.gsub(" ","-")
