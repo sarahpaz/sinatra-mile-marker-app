@@ -1,27 +1,32 @@
-<h1>Sign Up to Mile Marker</h1>
+<div class="wrapper">
+  <h1 class="signup">Sign Up</h1>
+  <h3>Make your miles count.</h3>
 
-<form action="/users/signup" method="POST">
-  <label for="username">Username:</label>
-  <input type="text" name="username" id="username" required>
+  <form class="details" action="/users/signup" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required>
 
-  <br><br>
+    <br><br>
 
-  <label for="email">Email:</label>
-  <input type="text" name="email" id="email" required>
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
 
-  <br><br>
+    <br><br>
 
-  <label for="run_goal">Run Goal:</label>
-  <input type="text" name="run_goal" id="run_goal" required>
+    <label for="run_goal">Run Goal:</label>
+    <input type="text" name="run_goal" id="run_goal" required>
 
-  <br><br>
+    <br><br>
 
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password" required> 
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required> 
 
-  <br><br>
+    <br><br>
+    <% if flash.has?(:message) %>
+      <p style="color: #FF785D; font-weight: 500;"><%= flash[:message] %></p>
+    <% end %>
+    <input type="submit" value="Sign Up" id="Submit">
+  </form>
 
-  <input type="submit" value="Sign Up" id="Submit">
-</form>
-<br>
-<p>Already a member? <a href="/users/login">Login</a>!</p>
+  <p class="alt-link">Already a member? <a href="/users/login">Login</a>.</p>
+</div>
