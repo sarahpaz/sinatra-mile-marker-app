@@ -28,7 +28,7 @@
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 10vh auto 16px auto;
+    margin: 9vh auto 16px auto;
     max-width: 500px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
@@ -36,14 +36,10 @@
     top: 10vh;
     border-radius: 5px;
   }
-  
-  .main-title {
-    padding-bottom: 10px;
-  }
 
   h1 {
     font-family: 'Gugi', cursive;
-    font-size: 4em;
+    font-size: 3.5em;
     line-height: 80px;
   }
 
@@ -63,8 +59,9 @@
     line-height: 36px;
   }
 
-  p {
+  p.alt-link {
     margin-bottom: 18px;
+    font-size: 0.9em;
   }
 
   .main {
@@ -109,7 +106,9 @@
     background: #FFC551;
     color: #fff;
     font-size: 16px;
+    margin: 5px;
   }
+
   Input#Submit:hover {
     background:#FFD37A;
   }
@@ -121,6 +120,10 @@
     padding: 2px;
   }
 
+  form.details {
+    padding: 20px;
+  }
+  
   nav.navbar {
     text-align: right;
     padding: 15px;
