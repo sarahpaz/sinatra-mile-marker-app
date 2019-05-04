@@ -36,7 +36,7 @@ class RunsController < ApplicationController
   
   get '/runs/:id/delete' do
     @run = Run.find(params[:id])
-    erb :'runs/delete'
+    erb :'/runs/delete'
   end
 
   delete '/runs/:id' do
