@@ -1,31 +1,38 @@
-<h1>Add a new run</h1>
-<h2>Good job! You're one step closer to your goal!</h2>
+<style>
+    body {
+      background: #FEEBC5;
+    }
+</style>
 
-<form action="/runs" method="POST">
-  <label for="distance">Distance (miles):</label>
-  <input type="text" name="distance" id="distance" required>
+<div class="wrapper">
+  <h1>Add a new run</h1>
+  <h3>Good job! You're one step closer to your goal!</h3>
 
-  <br><br>
+  <form action="/runs" method="POST">
+    <label for="distance">Distance (miles):</label>
+    <input type="text" name="distance" id="distance" required>
 
-  <label for="time">Time (mins):</label>
-  <input type="text" name="time" id="time" required>
+    <br><br>
 
-  <br><br>
+    <label for="time">Time (mins):</label>
+    <input type="text" name="time" id="time" required>
 
-  <label for="shoes">Shoes:</label>
-  <input type="text" name="shoes" id="shoes" required>
+    <br><br>
 
-  <br><br>
+    <label for="shoes">Shoes:</label>
+    <input type="text" name="shoes" id="shoes" required>
 
-  <label for="notes">Notes:</label><br>
-  <textarea rows="5" cols="50" name="notes" id="notes"></textarea>
+    <br><br>
 
-  <br><br>
+    <label for="notes">Notes:</label>
+    <textarea rows="5" cols="50" name="notes" id="notes" placeholder="How did you feel?"></textarea>
 
-  <label for="indoor_outdoor">Indoor / Outdoor:</label>
-  <input type="text" name="indoor_outdoor" id="indoor_outdoor" required>
+    <br><br>
 
-  <br><br>
-  <input type="submit" value="Add Run" id="Submit">
-</form>
+    <label for="indoor_outdoor">Indoor / Outdoor:</label>
+    <input type="text" name="indoor_outdoor" id="indoor_outdoor" required>
 
+    <br><br>
+    <input type="submit" value="Add Run" id="Submit">
+  </form>
+</div>

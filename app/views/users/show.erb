@@ -1,23 +1,53 @@
-<h1 class="white-title">Welcome, <%= @user.username %>!</h1>
+<style>
+  body {
+    background: #FEEBC5;
+  }
+</style>
 
-<h2>Here's a quick snapshot of your progress:</h2>
-<p>You've completed <%= @user.runs.count %> run(s).</p>
-<p>With a total of <%= @user.runs.inject(0) {|sum, r| sum + r.distance} %> miles!</p>
-<p>Your run goal is <%= @user.run_goal %> miles!</p>
+<div class="main">
+  <h1 class="white-title">Welcome, <span class="yellow-username"><%= @user.username %></span>!</h1>
 
-<progress value="<%= @user.runs.inject(0) {|sum, r| sum + r.distance} %>" max="<%= @user.run_goal %>"></progress>
+  <div class="sidebar">
 
-<h2>Run History</h2>
-<p>Got more miles to track? Add it <a href="/runs/new">here!</a></p>
-<% @user.runs.sort.reverse.each do |run|%>
-  Distance: <%= run.distance %> miles
-  Run time: <%= run.time %> minutes
-  Shoes: <%= run.shoes %>
-  Notes: <%= run.notes %> 
-  Indoor / Outdoor: <%= run.indoor_outdoor %>
-  <div>
-  <a href="/runs/<%= run.id %>/edit">Edit</a>&nbsp;<a href="/runs/<%= run.id %>/delete">Delete</a> <!-- message on click, are you sure you want to delete this run? -->
-  <br><br>
-<% end%>
+    <h2>Progress Snapsho:</h2>
+    <ul>
+      <li><p>You've completed <span class="yellow"><%= @user.runs.count %></span> run(s).</p></li>
+      <li><p>With a total of <span class="yellow"><%= @user.runs.inject(0) {|sum, r| sum + r.distance} %></span> miles.</p></li>
+      <li><p>Your average pace is <span class="yellow"><%= @user.runs.inject(0) {|sum, r| sum + r.time} / @user.runs.inject(0) {|sum, r| sum + r.distance}  %></span> mins/mile.</p></li>
+      <li><p>Your run goal is <span class="yellow"><%= @user.run_goal %></span> miles.</p></li>
+      <li><p>You have <span class="yellow"><%= @user.run_goal - (@user.runs.inject(0) {|sum, r| sum + r.distance})%></span> miles left to hit your goal!</p></li>
+    <ul>
+    <div id="progressbar">
+      <div value="<%= @user.runs.inject(0) {|sum, r| sum + r.distance} %>" max="<%= @user.run_goal %>"></div>
+    </div>
+  </div>
 
+  <div class="content">
+    <div class="intro">
+      <h4>You're one step closer to hitting your run goal!</h4> 
+      <p>With Mile Marker, you can keep track of your runs and quickly view your progress towards your goal.</p>
+      <br>
+      <p>Got more miles to mark? Add a new run <a href="/runs/new">here</a>, it's that easy!</p>
+      <p>Happy running &ndash; We'll see you at the finish line!</p>
+    </div>
+
+    <h2 class="run-history">Run History</h2>
+    
+    <% @user.runs.sort.reverse.each do |run|%>
+      <br>
+      Distance: <%= run.distance %> miles
+      Run time: <%= run.time %> minutes
+      Shoes: <%= run.shoes %>
+      <br>
+      Notes: <%= run.notes %> 
+      Indoor / Outdoor: <%= run.indoor_outdoor %>
+      <div>
+      <div class="edit-delete">
+        <a href="/runs/<%= run.id %>/edit">Edit</a>&nbsp;<a href="/runs/<%= run.id %>/delete">Delete</a> <!-- message on click, are you sure you want to delete this run? -->
+      </div>
+      <br>
+      <hr>
+    <% end%>
+  </div>
+</div>
 
