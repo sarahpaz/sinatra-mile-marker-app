@@ -22,23 +22,22 @@
           <ul>
             <li><a href="/users/<%= current_user.slug %>">
             <%= current_user.username %></a></li>
+            <li><a href="/runs/new">Add New Run</a></li>
             <li><a href="/users/logout">
             Logout</a></li>
+            <li><img src="/images/shoe.png" alt="Mile Marker Logo"></li>
           </ul>
+          
         </nav>
       <% end %>
 
     </header>
-    
-    <div class="main">
-      
+    <div class="main">  
       <%= yield %>
-
-      <footer class="branding">
-        <small>&copy; 2019 <strong>Mile Marker</strong></small>
-      </footer>
     </div>
-
+    <footer class="branding">
+        <small>&copy; 2019 <strong>Mile Marker</strong></small>
+    </footer>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
