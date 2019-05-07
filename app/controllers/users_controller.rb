@@ -10,14 +10,14 @@ class UsersController < ApplicationController
 
   post '/users/signup' do
     if User.exists?(username: params[:username])
-      flash[:message] = "Sorry. that username is already taken."
+      flash[:message] = "Sorry. that username is not available."
       erb :'/users/signup'
     elsif params[:username] != "" || params[:email] != "" || params[:run_goal] != "" || params[:password] != ""
       @user = User.create(params) 
       session[:user_id] = @user.id
       redirect "/users/#{@user.slug}"
     else
-      erb :'/users/signup' # add error message about missing fields
+      erb :'/users/signup' 
     end
   end
 
@@ -42,12 +42,12 @@ class UsersController < ApplicationController
 
   get '/users/logout' do
     session.clear
-    redirect '/' # add error message of successful logout
+    redirect '/' 
   end
 
   get '/users/:slug' do
     @user = current_user
-    redirect_if_not_logged_in  # add error message to login to view show page
+    redirect_if_not_logged_in 
     erb :'/users/show'
   end
 
