@@ -1,15 +1,15 @@
 <style>
   body {
-    background: #FEEBC5;
+    background: #EEEEEE;
   }
 </style>
 
 <div class="main">
-  <h1 class="white-title">Welcome, <span class="yellow-username"><%= @user.username %></span>!</h1>
+  <h1>Welcome, <span class="yellow-username"><%= @user.username %></span>!</h1>
 
   <div class="sidebar">
 
-    <h2>Progress Snapsho:</h2>
+    <h2>Progress Snapshot:</h2>
     <ul>
       <li><p>You've completed <span class="yellow"><%= @user.runs.count %></span> run(s).</p></li>
       <li><p>With a total of <span class="yellow"><%= @user.runs.inject(0) {|sum, r| sum + r.distance} %></span> miles.</p></li>
@@ -25,22 +25,25 @@
   <div class="content">
     <div class="intro">
       <h4>You're one step closer to hitting your run goal!</h4> 
-      <p>With Mile Marker, you can keep track of your runs and quickly view your progress towards your goal.</p>
+      <p>With <em>Mile Marker</em>, you can keep track of your runs and quickly view your progress towards your goal.</p>
       <br>
       <p>Got more miles to mark? Add a new run <a href="/runs/new">here</a>, it's that easy!</p>
       <p>Happy running &ndash; We'll see you at the finish line!</p>
     </div>
 
     <h2 class="run-history">Run History</h2>
+    <% if flash.has?(:message) %>
+        <p class="flash-green"><%= flash[:message] %></p>
+    <% end %>
     
     <% @user.runs.sort.reverse.each do |run|%>
       <br>
-      Distance: <%= run.distance %> miles
-      Run time: <%= run.time %> minutes
-      Shoes: <%= run.shoes %>
+      <b>Distance:</b> <%= run.distance %> miles
+      <b>Run time:</b> <%= run.time %> minutes
+      <b>Shoes:</b> <%= run.shoes %>
       <br>
-      Notes: <%= run.notes %> 
-      Indoor / Outdoor: <%= run.indoor_outdoor %>
+      <b>Notes:</b> <%= run.notes %> 
+      <b>Indoor / Outdoor:</b> <%= run.indoor_outdoor %>
       <div>
       <div class="edit-delete">
         <a href="/runs/<%= run.id %>/edit">Edit</a>&nbsp;<a href="/runs/<%= run.id %>/delete">Delete</a> <!-- message on click, are you sure you want to delete this run? -->
