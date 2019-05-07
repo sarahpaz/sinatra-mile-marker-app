@@ -33,7 +33,7 @@ Associations:
 Stretch Goals:
 - [ ] Add 'See How You Compare' page
 - [ ] Add option to edit run goal on 'Sarah' (edit profile) page
-- [ ] Add average pace (min/mile)
+- [x] Add average pace (min/mile)
 - [ ] Change Outdoor / Indoor to dropdown input
 
 
@@ -48,5 +48,5 @@ Stretch Goals:
 - [x] Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user.
 - [x] Ensure that users can edit and delete only their own resources - not resources created by other users.
 - [x] Validate user input so bad data cannot be persisted to the database.
-- [ ] Blog post.
-- [ ] BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!)
+- [x] Blog post.
+- [x] BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!)
