@@ -1,23 +1,23 @@
 <style>
   body {
-    background: #FEEBC5;
+    background: #EEEEEE;
   }
 </style>
-
-<h1>Oh no!<h2> 
-<h2>Are you sure you want to delete this run?</h2>
-
-<ul>
-  <li>Distance: <%= @run.distance %> miles</li>
-  <li>Run time: <%= @run.time %> minutes</li>
-  <li>Shoes: <%= @run.shoes %></li>
-  <li>Notes: <%= @run.notes %></li>
-  <li>Indoor / Outdoor: <%= @run.indoor_outdoor %></li>
-</ul>
-<br>
-<form action="/runs/<%= @run.id %>" method="POST">
-  <input type="hidden" id="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete" id="Submit">
-</form>
-<br>
-<p>You can also edit this run <a href="/runs/<%= @run.id %>/edit">here</a>.</p>
+<div class="container">
+  <h1>Oh no!<h1> 
+  <h3 class="form-h3">Are you sure you want to delete this run?</h3>      
+  <ul>
+    <li><b>Distance:</b> <%= @run.distance %> miles</li>
+    <li><b>Run time:</b> <%= @run.time %> minutes</li>
+    <li><b>Shoes:</b> <%= @run.shoes %></li>
+    <li><b>Notes:</b> <%= @run.notes %></li>
+    <li><b>Indoor / Outdoor:</b> <%= @run.indoor_outdoor %></li>
+  </ul>
+  <br>
+  <form action="/runs/<%= @run.id %>" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete" id="Submit">
+  </form>
+  <br>
+  <p>You can also edit this run <a href="/runs/<%= @run.id %>/edit">here</a>.</p>
+</div>
