@@ -14,12 +14,13 @@ class RunsController < ApplicationController
   end
 
   get '/runs/:id/edit' do
-    @run = Run.find(params[:id])
+    @run = Run.find_by_id(params[:id])
     @runs = Run.all
     if logged_in?
       if @run.user == current_user
         erb :'/runs/edit'
-      else
+      else 
+        flash[:message] = "You can only edit your own runs."
         redirect "/users/#{current_user.slug}"
       end
     else
@@ -37,7 +38,16 @@ class RunsController < ApplicationController
   
   get '/runs/:id/delete' do
     @run = Run.find(params[:id])
-    erb :'/runs/delete'
+    if logged_in?
+      if @run.user == current_user
+        erb :'/runs/delete'
+      else
+        flash[:message] = "You can only delete your own runs."
+        redirect "/users/#{current_user.slug}"
+      end
+    else
+      redirect '/'
+    end
   end
 
   delete '/runs/:id' do
