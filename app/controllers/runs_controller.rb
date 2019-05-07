@@ -8,6 +8,7 @@ class RunsController < ApplicationController
   post '/runs' do
     params[:distance] != "" && params[:time] != "" && params[:shoes] != "" && params[:indoor_outdoor] != ""
     @run = Run.create(distance: params[:distance], time: params[:time], shoes: params[:shoes], notes: params[:notes], indoor_outdoor: params[:indoor_outdoor], user_id: current_user.id)
+    flash[:message] = "Your run has been added."
     redirect "/users/#{@run.user.slug}"
     redirect_to_current_user
   end
@@ -43,6 +44,7 @@ class RunsController < ApplicationController
     @run = Run.find(params[:id])
     @run.user == current_user
     @run.destroy
+    flash[:message] = "Your run has been deleted."
     redirect "/users/#{@run.user.slug}"
     redirect_to_current_user
   end
