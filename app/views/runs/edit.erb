@@ -1,36 +1,37 @@
 <style>
   body {
-    background: #FEEBC5;
+    background: #EEEEEE;
   }
 </style>
 
-
+<div class="container">
 <h1>Edit Your Run</h1>
+<h3 class="form-h3">Update your run details here.</h3>
+  <form action="/runs/<%= @run.id %>" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+    <label for="distance">Distance (miles):</label>
+    <input type="text" name="distance" id="distance" value="<%= @run.distance %>" required>
 
-<form action="/runs/<%= @run.id %>" method="POST">
-  <input type="hidden" id="hidden" name="_method" value="PATCH">
-  <label for="distance">Distance (miles):</label>
-  <input type="text" name="distance" id="distance" value="<%= @run.distance %>" required>
+    <br><br>
 
-  <br><br>
+    <label for="time">Time (mins):</label>
+    <input type="text" name="time" id="time" value="<%= @run.time %>" required>
 
-  <label for="time">Time (mins):</label>
-  <input type="text" name="time" id="time" value="<%= @run.time %>" required>
+    <br><br>
 
-  <br><br>
+    <label for="shoes">Shoes:</label>
+    <input type="text" name="shoes" id="shoes" value="<%= @run.shoes %>" required>
 
-  <label for="shoes">Shoes:</label>
-  <input type="text" name="shoes" id="shoes" value="<%= @run.shoes %>" required>
+    <br><br>
 
-  <br><br>
+    <label for="notes">Notes:</label><br>
+    <textarea rows="5" cols="50" name="notes" id="notes"><%= @run.notes %></textarea>
 
-  <label for="notes">Notes:</label><br>
-  <textarea rows="5" cols="50" name="notes" id="notes"><%= @run.notes %></textarea>
+    <br><br>
+    <label for="indoor_outdoor">Indoor / Outdoor:</label>
+    <input type="text" name="indoor_outdoor" id="indoor_outdoor" value="<%= @run.indoor_outdoor %>" required>
 
-  <br><br>
-  <label for="indoor_outdoor">Indoor / Outdoor:</label>
-  <input type="text" name="indoor_outdoor" id="indoor_outdoor" value="<%= @run.indoor_outdoor %>" required>
-
-  <br><br>
-  <input type="submit" value="Update" id="Submit">
-</form>
+    <br><br>
+    <input type="submit" value="Update" id="Submit">
+  </form>
+</div>
