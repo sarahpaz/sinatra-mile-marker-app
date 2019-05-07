@@ -46,11 +46,21 @@
   .white-title {
     color: #fff;
   }
+  .yellow-username {
+    color: #FFC551;
+  }
+  .yellow {
+    color: #FFC551;
+    font-weight: 700;
+  }
 
   h2 {
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
+  }
+
+  h2.run-history {
     border-bottom: 3px solid #FFC551;
   }
 
@@ -69,23 +79,29 @@
     max-width: 1030px;
     margin: auto;
     padding: 2em;
+    clear: both;
   }
 
   .content {
     float: left;
     width: 60%; /* 480px / 800px */
   }
+  
+  .intro {
+    padding: 30px 0px;
+  }
 
   .sidebar {
-    background: #eee;
+    background: #fff;
     border: 1px solid #ccc;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */
     width: 30%; /* 240px / 800px */
+    border-radius: 3px;
   }
-
-  .sidebar ul {
-    font-size: 14px;
+  
+  .sidebar li {
+    padding: 10px 0px;
   }
 
   .branding {
@@ -123,20 +139,93 @@
   form.details {
     padding: 20px;
   }
+
+  form.signup {
+    text-align: left;
+  }
   
   nav.navbar {
     text-align: right;
-    padding: 15px;
-    background: #FFD37A;
+    padding: 10px;
+    background: #fff;
+    border-bottom: 1px solid #FFC551;
   }
 
   nav.navbar li {
     display: inline-block;
+    vertical-align: middle;
   }
+
+  nav li a {
+    color: #FFC551;
+    margin: auto 10px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  nav ul {
+    max-width: 1030px;
+    margin: auto;
+  }
+
+  a {
+    color: #FFC551;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  a:hover {
+    color: #fff;
+  }
+
+  nav li a:hover {
+    border-bottom: 3px solid #FFC551;
+    padding-bottom: 5px;
+    color: #FFC551;
+  }
+
+  li img {
+    height: 40px;
+  }
+
   #mm-logo {
     height: 100px;
   }
 
+  .edit-delete {
+    padding-top: 10px;
+  }
+
+  .edit-delete a {
+    margin-right: 10px;
+  }
+  .form-container {
+    width: 300px;
+    clear: both;
+    margin: auto;
+  }
+  .form-container input {
+    width: 100%;
+    clear: both;
+  }
+  #progressbar {
+    background-color: #F6F6F6;
+    border-radius: 13px;
+    padding: 3px;
+    margin-top: 10px;
+    border: 1px solid #FFC551;
+  }
+
+  #progressbar>div {
+    background-color: #FFC551;
+    width: 40%;
+    height: 20px;
+    border-radius: 10px;
+  }
+
+  textarea#notes {
+    font-size: 16px;
+  }
 }
 
 @media screen and (max-width: 600px) {
