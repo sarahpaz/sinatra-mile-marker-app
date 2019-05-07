@@ -1,6 +1,6 @@
 <style>
   body {
-    background: #EEEEEE;
+    background: #FBFBFB;
   }
 </style>
 
@@ -31,10 +31,11 @@
       <p>Happy running &ndash; We'll see you at the finish line!</p>
     </div>
 
-    <h2 class="run-history">Run History</h2>
     <% if flash.has?(:message) %>
-        <p class="flash-green"><%= flash[:message] %></p>
+        <p class="flash"><%= flash[:message] %></p>
     <% end %>
+    <br>
+    <h2 class="run-history">Run History</h2>
     
     <% @user.runs.sort.reverse.each do |run|%>
       <br>
