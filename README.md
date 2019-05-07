@@ -4,11 +4,11 @@ Mile Marker is a web application designed to help users track their runs and rea
 
 ## Installation & Setup
 
-Fork and clone the [Mile Marker](https://github.com/sarahpaz/sinatra-mile-marker-app) repo onto your computer. In your terminal, cd to the sinatra-mile-marker-app folder. Run 'bundle install' to load the Ruby gems and dependencies. This web application has seed data added, be sure to run 'rake db:migrate' and 'rake db:seed' if you would like to test with the provided seed data. Data can be found in the db folder (seeds.rb).
+Fork and clone the [Mile Marker](https://github.com/sarahpaz/sinatra-mile-marker-app) repo onto your computer. In your terminal, cd to the sinatra-mile-marker-app folder. Run `bundle install` to load the Ruby gems and dependencies. This web application has seed data added, be sure to run `rake db:migrate` and `rake db:seed` if you would like to test with the provided seed data. Data can be found in the db folder (seeds.rb).
 
 ### Usage
 
-Run the Mile Marker web application on your local machine bye typing 'shotgun' in your terminal. Open your browser and navigate to 'localhost:9393'. The web application will load, you can create a new login, or use the seed data provided. To exit, type 'CTRL + C' to stop the 'shotgun' session.
+Run the Mile Marker web application on your local machine bye typing `shotgun` in your terminal. Open your browser and navigate to 'localhost:9393'. The web application will load, you can create a new login, or use the seed data provided. To exit, type 'CTRL + C' to stop the `shotgun` session.
 
 
 ## Contributing
