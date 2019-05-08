@@ -28,10 +28,13 @@
     <textarea rows="5" cols="50" name="notes" id="notes"><%= @run.notes %></textarea>
 
     <br><br>
-    <label for="indoor_outdoor">Indoor / Outdoor:</label>
-    <input type="text" name="indoor_outdoor" id="indoor_outdoor" value="<%= @run.indoor_outdoor %>" required>
-
+    Indoor / Outdoor:
+    <br>
+    <label><input class="radio" type="radio" name="indoor_outdoor" value="Outdoor" <%= "checked" if @run.indoor_outdoor == "Outdoor" %>>Outdoor</label>&nbsp;&nbsp;
+    <label><input class="radio" type="radio" name="indoor_outdoor" value="Indoor" <%= "checked" if @run.indoor_outdoor == "Indoor" %>>Indoor</label>
     <br><br>
     <input type="submit" value="Update" id="Submit">
   </form>
 </div>
+
+
