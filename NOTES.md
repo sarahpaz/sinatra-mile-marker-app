@@ -34,7 +34,8 @@ Stretch Goals:
 - [ ] Add 'See How You Compare' page
 - [ ] Add option to edit run goal on 'Sarah' (edit profile) page
 - [x] Add average pace (min/mile)
-- [ ] Change Outdoor / Indoor to dropdown input
+- [x] Change Outdoor / Indoor to radio buttons
+- [ ] Set up on Heroku 
 
 
 ### Project Requirements:
