@@ -19,7 +19,7 @@ class RunsController < ApplicationController
     if logged_in?
       if @run.user == current_user
         erb :'/runs/edit'
-      else 
+      else
         flash[:message] = "You can only edit your own runs."
         redirect "/users/#{current_user.slug}"
       end
@@ -32,6 +32,7 @@ class RunsController < ApplicationController
     @run = Run.find(params[:id])
     @run.user == current_user
     @run.update(distance: params[:distance], time: params[:time], shoes: params[:shoes], notes: params[:notes], indoor_outdoor: params[:indoor_outdoor])
+     flash[:message] = "Your run has been updated."
     redirect "/users/#{@run.user.slug}"
     redirect_to_current_user
   end
