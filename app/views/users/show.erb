@@ -18,7 +18,8 @@
       <li><p>You have <span class="yellow"><%= @user.run_goal - (@user.runs.inject(0) {|sum, r| sum + r.distance})%></span> miles left to hit your goal!</p></li>
     <ul>
     <div id="progressbar">
-      <div value="<%= @user.runs.inject(0) {|sum, r| sum + r.distance} %>" max="<%= @user.run_goal %>"></div>
+     <!--  <div value="<%= @user.runs.inject(0) {|sum, r| sum + r.distance} %>" max="<%= @user.run_goal %>"></div> -->
+      <progress max="<%= @user.run_goal %>" value="<%= @user.runs.inject(0) {|sum, r| sum + r.distance} %>"></progress>
     </div>
   </div>
 
