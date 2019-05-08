@@ -220,20 +220,36 @@
     width: 100%;
     clear: both;
   }
-  #progressbar {
-    background-color: #FBFBFB;
-    border-radius: 13px;
-    padding: 3px;
-    margin-top: 10px;
+
+  progress {
+    display: block; /* default: inline-block */
+    width: 300px;
+    margin: 2em auto;
+    padding: 4px;
+    border: 0 none;
+    background: #FBFBFB;
+    border-radius: 14px;
     border: 1px solid #FFC551;
   }
-
-  #progressbar>div {
-    background-color: #FFC551;
-    width: 40%;
-    height: 20px;
-    border-radius: 10px;
+  progress::-moz-progress-bar {
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.4), 0 2px 5px 0px rgba(0,0,0,0.3);
   }
+  /* webkit */
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    progress {
+      height: 25px;
+    }
+  }
+  progress::-webkit-progress-bar {
+      background: #FBFBFB;
+  }  
+  progress::-webkit-progress-value {  
+    border-radius: 12px;
+    background: #FFC551;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.4), 0 2px 5px 0px rgba(0,0,0,0.1); 
+} 
 
   textarea#notes {
     font-size: 16px;
