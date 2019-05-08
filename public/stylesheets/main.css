@@ -148,6 +148,11 @@
     border-radius: 3px;
   }
 
+  .container input.radio {
+    width: unset;
+    margin-right: 5px;
+  }
+
   form.details {
     padding-bottom: 20px;
   }
