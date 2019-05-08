@@ -10,12 +10,12 @@
   <form action="/runs/<%= @run.id %>" method="POST">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
     <label for="distance">Distance (miles):</label>
-    <input type="text" name="distance" id="distance" value="<%= @run.distance %>" required>
+    <input type="number" name="distance" id="distance" value="<%= @run.distance %>" required>
 
     <br><br>
 
     <label for="time">Time (mins):</label>
-    <input type="text" name="time" id="time" value="<%= @run.time %>" required>
+    <input type="number" name="time" id="time" value="<%= @run.time %>" required>
 
     <br><br>
 
