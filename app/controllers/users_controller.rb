@@ -25,19 +25,24 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/welcome'
     else
-      redirect :"/users/#{current_user.slug}"
+      redirect "/users/#{current_user.slug}"
     end
   end
 
   post '/users/login' do
-    @user = User.find_by(username: params[:username])
-    if @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect "/users/#{@user.slug}"
-    else
-      flash[:message] = "Sorry. that password is not valid."
-      redirect '/'
-    end    
+    if !User.exists?(username: params[:username])
+      flash[:message] = "No valid user, please create an account."
+      redirect '/users/signup'
+    else 
+      @user = User.find_by(username: params[:username])
+      if @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect "/users/#{@user.slug}"
+      else
+        flash[:message] = "Sorry. that password is not valid."
+        redirect '/'
+      end    
+    end
   end 
 
   get '/users/logout' do
