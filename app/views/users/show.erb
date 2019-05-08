@@ -10,16 +10,19 @@
   <div class="sidebar">
 
     <h2>Progress Snapshot:</h2>
-    <ul>
+      <ul>
       <li><p>You've completed <span class="yellow"><%= @user.runs.count %></span> run(s).</p></li>
       <li><p>With a total of <span class="yellow"><%= @user.runs.inject(0) {|sum, r| sum + r.distance} %></span> miles.</p></li>
-      <li><p>Your average pace is <span class="yellow"><%= @user.runs.inject(0) {|sum, r| sum + r.time} / @user.runs.inject(0) {|sum, r| sum + r.distance}  %></span> mins/mile.</p></li>
+      <% if @user.runs.empty? %>
+        <li><p>Your average pace is <span class="yellow">0</span> mins/mile.</p></li>
+      <% else %>
+        <li><p>Your average pace is <span class="yellow"><%= @user.runs.inject(0) {|sum, r| sum + r.time} / @user.runs.inject(0) {|sum, r| sum + r.distance}%></span> mins/mile.</p></li>
+      <% end %>
       <li><p>Your run goal is <span class="yellow"><%= @user.run_goal %></span> miles.</p></li>
-      <li><p>You have <span class="yellow"><%= @user.run_goal - (@user.runs.inject(0) {|sum, r| sum + r.distance})%></span> miles left to hit your goal!</p></li>
+      <li><p>You have <span class="yellow"><%= @user.run_goal - @user.runs.inject(0) {|sum, r| sum + r.distance}%></span> miles left to hit your goal!</p></li>
     <ul>
     <div id="progressbar">
-     <!--  <div value="<%= @user.runs.inject(0) {|sum, r| sum + r.distance} %>" max="<%= @user.run_goal %>"></div> -->
-      <progress max="<%= @user.run_goal %>" value="<%= @user.runs.inject(0) {|sum, r| sum + r.distance} %>"></progress>
+      <progress max="<%= @user.run_goal %>" value="<%= @user.runs.inject(0) {|sum, r| sum + r.distance}%>"></progress>
     </div>
   </div>
 
