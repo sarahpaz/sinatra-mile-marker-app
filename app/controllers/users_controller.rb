@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   post '/users/signup' do
     if User.exists?(username: params[:username])
-      flash[:message] = "Sorry. that username is not available."
+      flash[:message] = "Sorry, that username is not available."
       erb :'/users/signup'
     elsif params[:username] != "" || params[:email] != "" || params[:run_goal] != "" || params[:password] != ""
       @user = User.create(params) 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   post '/users/login' do
     if !User.exists?(username: params[:username])
-      flash[:message] = "No valid user, please create an account."
+      flash[:message] = "Invalid username. Please create an account."
       redirect '/users/signup'
     else 
       @user = User.find_by(username: params[:username])
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect "/users/#{@user.slug}"
       else
-        flash[:message] = "Sorry. that password is not valid."
+        flash[:message] = "Sorry, that password is not valid."
         redirect '/'
       end    
     end
