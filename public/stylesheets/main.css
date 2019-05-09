@@ -148,6 +148,11 @@
     border-radius: 3px;
   }
 
+  input.radio {
+    width: unset;
+    margin-right: 5px;
+}
+
   .container input.radio {
     width: unset;
     margin-right: 5px;
